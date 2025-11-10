@@ -1,0 +1,82 @@
+
+{
+  "name": "salas",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["numero", "nome", "capacidade", "tipo", "localizacao", "ativa", "createdAt", "userId"],
+        "properties": {
+          "userId": {
+            "bsonType": "string",
+            "description": "ID do usuário proprietário"
+          },
+          "numero": {
+            "bsonType": "string",
+            "description": "Número da sala"
+          },
+          "nome": {
+            "bsonType": "string",
+            "description": "Nome da sala"
+          },
+          "capacidade": {
+            "bsonType": "int",
+            "minimum": 1,
+            "description": "Capacidade máxima de alunos"
+          },
+          "tipo": {
+            "bsonType": "string",
+            "enum": ["laboratorio", "anfiteatro", "sala_comum", "auditorio", "biblioteca"],
+            "description": "Tipo da sala"
+          },
+          "localizacao": {
+            "bsonType": "object",
+            "required": ["bloco", "andar"],
+            "properties": {
+              "bloco": {
+                "bsonType": "string",
+                "description": "Bloco onde está localizada"
+              },
+              "andar": {
+                "bsonType": "string",
+                "description": "Andar da sala"
+              },
+              "descricao": {
+                "bsonType": "string",
+                "description": "Descrição adicional da localização"
+              }
+            }
+          },
+          "recursos": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string"
+            },
+            "description": "Lista de recursos disponíveis"
+          },
+          "ativa": {
+            "bsonType": "bool",
+            "description": "Se a sala está ativa para uso"
+          },
+          "observacoes": {
+            "bsonType": "string",
+            "description": "Observações sobre a sala"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação da sala"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de última atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

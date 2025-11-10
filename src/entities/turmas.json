@@ -1,0 +1,100 @@
+
+{
+  "name": "turmas",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["codigo_turma", "disciplina_id", "professor", "semestre", "ano", "horarios", "sala_id", "ativa", "createdAt", "userId"],
+        "properties": {
+          "userId": {
+            "bsonType": "string",
+            "description": "ID do usuário proprietário"
+          },
+          "codigo_turma": {
+            "bsonType": "string",
+            "description": "Código único da turma"
+          },
+          "disciplina_id": {
+            "bsonType": "string",
+            "description": "ID da disciplina"
+          },
+          "professor": {
+            "bsonType": "string",
+            "description": "Nome do professor responsável"
+          },
+          "semestre": {
+            "bsonType": "int",
+            "enum": [1, 2],
+            "description": "Semestre (1 ou 2)"
+          },
+          "ano": {
+            "bsonType": "int",
+            "minimum": 2020,
+            "description": "Ano letivo"
+          },
+          "horarios": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "object",
+              "required": ["dia_semana", "hora_inicio", "hora_fim"],
+              "properties": {
+                "dia_semana": {
+                  "bsonType": "string",
+                  "enum": ["segunda", "terca", "quarta", "quinta", "sexta", "sabado"],
+                  "description": "Dia da semana"
+                },
+                "hora_inicio": {
+                  "bsonType": "string",
+                  "pattern": "^([01]?[0-9]|2[0-3]):[0-5][0-9]$",
+                  "description": "Hora de início (HH:MM)"
+                },
+                "hora_fim": {
+                  "bsonType": "string",
+                  "pattern": "^([01]?[0-9]|2[0-3]):[0-5][0-9]$",
+                  "description": "Hora de fim (HH:MM)"
+                }
+              }
+            },
+            "description": "Lista de horários da turma"
+          },
+          "sala_id": {
+            "bsonType": "string",
+            "description": "ID da sala onde ocorre a aula"
+          },
+          "vagas_total": {
+            "bsonType": "int",
+            "minimum": 1,
+            "description": "Número total de vagas"
+          },
+          "vagas_ocupadas": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Número de vagas ocupadas"
+          },
+          "ativa": {
+            "bsonType": "bool",
+            "description": "Se a turma está ativa"
+          },
+          "observacoes": {
+            "bsonType": "string",
+            "description": "Observações sobre a turma"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação da turma"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de última atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

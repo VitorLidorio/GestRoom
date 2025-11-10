@@ -1,0 +1,42 @@
+{
+  "name": "users",
+  "type": "object",
+  "required": [
+    "username",
+    "password",
+    "userName",
+    "userRole",
+    "ativo",
+    "createdTime"
+  ],
+  "properties": {
+    "username": {
+      "bsonType": "string",
+      "description": "Nome de usuário para login (único)"
+    },
+    "password": {
+      "bsonType": "string",
+      "description": "Senha do usuário"
+    },
+    "userName": {
+      "bsonType": "string",
+      "description": "Nome completo do usuário"
+    },
+    "userRole": {
+      "bsonType": "string",
+      "enum": [
+        "ADMIN",
+        "USER"
+      ],
+      "description": "Função do usuário no sistema"
+    },
+    "ativo": {
+      "bsonType": "bool",
+      "description": "Status do usuário (ativo/inativo)"
+    },
+    "createdTime": {
+      "bsonType": "string",
+      "description": "Data de criação do usuário"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+
+{
+  "name": "disciplinas",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["codigo", "nome", "carga_horaria", "departamento", "ativa", "createdAt", "userId"],
+        "properties": {
+          "userId": {
+            "bsonType": "string",
+            "description": "ID do usuário proprietário"
+          },
+          "codigo": {
+            "bsonType": "string",
+            "description": "Código único da disciplina"
+          },
+          "nome": {
+            "bsonType": "string",
+            "description": "Nome da disciplina"
+          },
+          "carga_horaria": {
+            "bsonType": "int",
+            "minimum": 1,
+            "description": "Carga horária total em horas"
+          },
+          "departamento": {
+            "bsonType": "string",
+            "description": "Departamento responsável"
+          },
+          "ementa": {
+            "bsonType": "string",
+            "description": "Ementa da disciplina"
+          },
+          "pre_requisitos": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string"
+            },
+            "description": "Lista de códigos de disciplinas pré-requisitos"
+          },
+          "creditos": {
+            "bsonType": "int",
+            "minimum": 1,
+            "description": "Número de créditos"
+          },
+          "ativa": {
+            "bsonType": "bool",
+            "description": "Se a disciplina está ativa"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação da disciplina"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de última atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}
