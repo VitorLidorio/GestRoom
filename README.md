@@ -36,6 +36,7 @@ O sistema foi construído em **TypeScript**, com foco em **boas práticas, escal
  - Execute os comandos abaixo:
 
    -npm install
+
    -npm run build
 
   Isso vai gerar uma pasta **dist**
