@@ -39,7 +39,7 @@ O sistema foi construído em **TypeScript**, com foco em **boas práticas, escal
 
    - npm run build
 
-  Isso vai gerar uma pasta **dist**
+     Isso vai gerar uma pasta **dist**
 
  - Se você tem o Node.js instalado:
      
