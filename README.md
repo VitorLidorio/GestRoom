@@ -55,7 +55,7 @@ O sistema foi construído em **TypeScript**, com foco em **boas práticas, escal
   
   **Usuário de FTP:gestroom1**
   
-  **Senha:*******
+  **Senha:** *******
   
   **Porta:21**
 
