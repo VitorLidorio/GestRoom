@@ -52,8 +52,11 @@ O sistema foi construído em **TypeScript**, com foco em **boas práticas, escal
   - Utilize FileZilla para subir os arquivos na Locaweb via FTP:
 
   **Host:ftp.gestroom.com.br**
+  
   **Usuário de FTP:gestroom1**
+  
   **Senha:***** **
+  
   **Porta:21**
 
  ---
