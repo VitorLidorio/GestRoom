@@ -34,14 +34,15 @@ O sistema foi construído em **TypeScript**, com foco em **boas práticas, escal
 ## 🛠️ Instalação
 
  - Execute os comandos abaixo:
-     npm install
-     npm run build
+
+   -npm install
+   -npm run build
 
   Isso vai gerar uma pasta **dist**
 
-
  - Se você tem o Node.js instalado:
-     npx serve dist
+     
+    - npx serve dist
 
   Depois, acesse o endereço que ele mostrar, por exemplo:
 
