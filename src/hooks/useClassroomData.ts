@@ -64,7 +64,10 @@ export const useClassroomData = () => {
   // Buscar salas
   const fetchSalas = useCallback(async () => {
     try {
-      const userId = lumi.auth.user?.userId
+      const storedUser = localStorage.getItem("currentUser")
+      if (!storedUser) return
+      const user = JSON.parse(storedUser)
+      const userId = user._id
       if (!userId) return
       
       const response = await lumi.entities.salas.list({
@@ -81,7 +84,10 @@ export const useClassroomData = () => {
   // Buscar disciplinas
   const fetchDisciplinas = useCallback(async () => {
     try {
-      const userId = lumi.auth.user?.userId
+      const storedUser = localStorage.getItem("currentUser")
+      if (!storedUser) return
+      const user = JSON.parse(storedUser)
+      const userId = user._id
       if (!userId) return
       
       const response = await lumi.entities.disciplinas.list({
@@ -98,7 +104,10 @@ export const useClassroomData = () => {
   // Buscar turmas
   const fetchTurmas = useCallback(async () => {
     try {
-      const userId = lumi.auth.user?.userId
+      const storedUser = localStorage.getItem("currentUser")
+      if (!storedUser) return
+      const user = JSON.parse(storedUser)
+      const userId = user._id
       if (!userId) return
       
       const response = await lumi.entities.turmas.list({
@@ -129,7 +138,13 @@ export const useClassroomData = () => {
   // CRUD para Salas
   const createSala = async (salaData: Omit<Sala, '_id' | 'userId'>) => {
     try {
-      const userId = lumi.auth.user?.userId
+      const storedUser = localStorage.getItem("currentUser")
+      if (!storedUser) {
+        toast.error('Usuário não autenticado')
+        throw new Error('Usuário não autenticado')
+      }
+      const user = JSON.parse(storedUser)
+      const userId = user._id
       if (!userId) {
         toast.error('Usuário não autenticado')
         throw new Error('Usuário não autenticado')
@@ -184,7 +199,13 @@ export const useClassroomData = () => {
   // CRUD para Disciplinas
   const createDisciplina = async (disciplinaData: Omit<Disciplina, '_id' | 'userId'>) => {
     try {
-      const userId = lumi.auth.user?.userId
+      const storedUser = localStorage.getItem("currentUser")
+      if (!storedUser) {
+        toast.error('Usuário não autenticado')
+        throw new Error('Usuário não autenticado')
+      }
+      const user = JSON.parse(storedUser)
+      const userId = user._id
       if (!userId) {
         toast.error('Usuário não autenticado')
         throw new Error('Usuário não autenticado')
@@ -239,7 +260,13 @@ export const useClassroomData = () => {
   // CRUD para Turmas
   const createTurma = async (turmaData: Omit<Turma, '_id' | 'userId'>) => {
     try {
-      const userId = lumi.auth.user?.userId
+      const storedUser = localStorage.getItem("currentUser")
+      if (!storedUser) {
+        toast.error('Usuário não autenticado')
+        throw new Error('Usuário não autenticado')
+      }
+      const user = JSON.parse(storedUser)
+      const userId = user._id
       if (!userId) {
         toast.error('Usuário não autenticado')
         throw new Error('Usuário não autenticado')
